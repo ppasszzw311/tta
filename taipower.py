@@ -49,7 +49,7 @@ errorlist = []
 
 for date in datelist2020:
     for item in datedaily:
-        url_link = "https://raw.githubusercontent.com/apan1121/powerInfo/power_log_2019/log/history/" + date + item
+        url_link = "https://raw.githubusercontent.com/apan1121/powerInfo/power_log_2020/log/history/" + date + item
         try:
             result = requests.get(url_link)
             daily = pd.DataFrame(json.loads(result.text))
@@ -73,7 +73,7 @@ for date in datelist2020:
             dailypandas = pd.json_normalize(dailyitii)
             name_a = item[1:6]
             dailypandas.to_csv('2020record/' + date + ' ' +
-                               name_a + '.csv', sep=",", header=True)
+                               name_a + '.csv', sep=",", header=True, encoding="utf-8")
         except:
             print("錯誤", date, item)
             ist = date + item
