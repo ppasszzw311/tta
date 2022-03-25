@@ -18,15 +18,15 @@ for i in range(24):
 ### 設定網頁爬蟲變數
 ### 製作一年
 
-datelist2020 = []
+datelist2021 = []
 month_l = ['01', '02', '03', '04', '05',
            '06', '07', '08', '09', '10', '11', '12']
 day_l = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
          '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
 for i in month_l:
     for j in day_l:
-        item = '2020-' + i + '-' + j
-        datelist2020.append(item)
+        item = '2021-' + i + '-' + j
+        datelist2021.append(item)
 
 ### 去除沒資料的日期
 ### 去除沒資料的日期
@@ -47,9 +47,9 @@ for i in month_l:
 
 errorlist = []
 
-for date in datelist2020:
+for date in datelist2021:
     for item in datedaily:
-        url_link = "https://raw.githubusercontent.com/apan1121/powerInfo/power_log_2020/log/history/" + date + item
+        url_link = "https://raw.githubusercontent.com/apan1121/powerInfo/gh-pages/log/history/" + date + item
         try:
             result = requests.get(url_link)
             daily = pd.DataFrame(json.loads(result.text))
@@ -72,7 +72,7 @@ for date in datelist2020:
                 dailyitii.append(newdata)
             dailypandas = pd.json_normalize(dailyitii)
             name_a = item[1:6]
-            dailypandas.to_csv('2020record/' + date + ' ' +
+            dailypandas.to_csv('2019record/' + date + ' ' +
                                name_a + '.csv', sep=",", header=True, encoding="utf-8")
         except:
             print("錯誤", date, item)
