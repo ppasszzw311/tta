@@ -21,9 +21,9 @@ for item in filtered:
     newdf = pd.read_csv("./2021record/" + item, encoding="utf-8", sep=",")
     newdf['year'] = newdf['record_time'].str[0:4]
     newdf['month'] = newdf['record_time'].str[5:7]
-    newdf = newdf[newdf['name'] == '海洋竹南']
+    newdf = newdf[newdf['name'] == '大潭CC#4']
     df = pd.concat([df, newdf], axis=0)
     print(item)
 
-df.to_csv("summarychu1.csv", encoding="utf-8", sep=",")
+df.to_csv("summarylngadcc4.csv", encoding="utf-8", sep=",")
 
